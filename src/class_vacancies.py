@@ -25,7 +25,7 @@ class Vacancies:
         Метод строкового представления экземпляра класса
         """
         return (f"{self.name}, зарплата: {self.salary}, город: {self.address}, график: {self.schedule}, "
-                f"навыки: {self.snippet}")
+                f"описание: {self.snippet}")
 
     @property
     def salary(self) -> int:
@@ -49,7 +49,10 @@ class Vacancies:
         if isinstance(other, Vacancies):
             if self.__salary < other.__salary:
                 return True
-        raise TypeError("Сравнивать можно только объекты класса Вакансий")
+            else:
+                return False
+        else:
+            raise TypeError("Сравнивать можно только объекты класса Вакансий")
 
     def __le__(self, other) -> bool:
         """
@@ -58,7 +61,10 @@ class Vacancies:
         if isinstance(other, Vacancies):
             if self.__salary <= other.__salary:
                 return True
-        raise TypeError("Сравнивать можно только объекты класса Вакансий")
+            else:
+                return False
+        else:
+            raise TypeError("Сравнивать можно только объекты класса Вакансий")
 
     def __gt__(self, other) -> bool:
         """
@@ -67,7 +73,10 @@ class Vacancies:
         if isinstance(other, Vacancies):
             if self.__salary > other.__salary:
                 return True
-        raise TypeError("Сравнивать можно только объекты класса Вакансий")
+            else:
+                return False
+        else:
+            raise TypeError("Сравнивать можно только объекты класса Вакансий")
 
     def __ge__(self, other) -> bool:
         """
@@ -76,7 +85,10 @@ class Vacancies:
         if isinstance(other, Vacancies):
             if self.__salary >= other.__salary:
                 return True
-        raise TypeError("Сравнивать можно только объекты класса Вакансий")
+            else:
+                return False
+        else:
+            raise TypeError("Сравнивать можно только объекты класса Вакансий")
 
     def __eq__(self, other) -> bool:
         """
@@ -85,7 +97,10 @@ class Vacancies:
         if isinstance(other, Vacancies):
             if self.__salary == other.__salary:
                 return True
-        raise TypeError("Сравнивать можно только объекты класса Вакансий")
+            else:
+                return False
+        else:
+            raise TypeError("Сравнивать можно только объекты класса Вакансий")
 
     def __ne__(self, other):
         """
@@ -94,4 +109,7 @@ class Vacancies:
         if isinstance(other, Vacancies):
             if self.__salary != other.__salary:
                 return True
-        raise TypeError("Сравнивать можно только объекты класса Вакансий")
+            else:
+                return False
+        else:
+            raise TypeError("Сравнивать можно только объекты класса Вакансий")
