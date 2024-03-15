@@ -4,7 +4,6 @@ from abc import ABC, abstractmethod
 
 
 URL = 'https://api.hh.ru/vacancies'
-filename = "../data.json"
 
 
 class AbstractAPI(ABC):

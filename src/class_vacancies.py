@@ -6,6 +6,8 @@ class Vacancies:
         self.name = name
         if not salary:
             self.__salary = 0
+        elif type(salary.get("from")) != int and type(salary.get("from")) != float:
+            self.__salary = 0
         else:
             self.__salary = salary["from"]
 

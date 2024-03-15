@@ -1,7 +1,8 @@
 import pytest
 from src.classes_to_filter_vacancies import VacancyFilter, JsonReader
-from src.class_get_vacancies import filename
 from src.class_vacancies import Vacancies
+
+filename = "../data.json"
 
 
 @pytest.fixture

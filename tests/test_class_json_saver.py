@@ -3,7 +3,7 @@ import json
 from src.class_json_saver import JSONSaver
 from src.class_vacancies import Vacancies
 
-filename_2 = "../data_2.json"
+filename_2 = "C:/Users/ejik2/PycharmProjects/job_parser/tests/test.json"
 
 
 @pytest.fixture

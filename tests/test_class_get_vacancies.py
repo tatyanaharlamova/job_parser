@@ -1,5 +1,7 @@
 import pytest
-from src.class_get_vacancies import GetVacancyFromApi, URL, filename
+from src.class_get_vacancies import GetVacancyFromApi, URL
+
+filename = "../data.json"
 
 
 @pytest.fixture
