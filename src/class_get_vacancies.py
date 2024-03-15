@@ -6,7 +6,6 @@ from abc import ABC, abstractmethod
 URL = 'https://api.hh.ru/vacancies'
 
 
-
 class AbstractAPI(ABC):
     """
     Абстрактный класс для класса получения вакансий по API
