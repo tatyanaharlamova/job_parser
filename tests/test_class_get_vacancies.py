@@ -13,4 +13,4 @@ def test_get_vacancies(get_from_hh):
     """
     Тест на получение результата запроса по API
     """
-    assert type(get_from_hh.get_vacancies("Python", filename)) == list
+    assert type(get_from_hh.get_vacancies("Python")) == list

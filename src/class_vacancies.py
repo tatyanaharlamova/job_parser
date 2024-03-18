@@ -2,14 +2,16 @@ class Vacancies:
     """
     Класс Вакансий
     """
-    def __init__(self, name: str, salary, address, schedule, snippet):
+    __slots__ = ("name", "salary", "address", "schedule", "snippet")
+
+    def __init__(self, name, salary, address, schedule, snippet):
         self.name = name
-        if not salary:
-            self.__salary = 0
+        if dict != type(salary):
+            self.salary = 0
         elif type(salary.get("from")) != int and type(salary.get("from")) != float:
-            self.__salary = 0
+            self.salary = 0
         else:
-            self.__salary = salary["from"]
+            self.salary = salary["from"]
 
         try:
             self.address = address.get("city")
@@ -29,27 +31,12 @@ class Vacancies:
         return (f"{self.name}, зарплата: {self.salary}, город: {self.address}, график: {self.schedule}, "
                 f"описание: {self.snippet}")
 
-    @property
-    def salary(self) -> int:
-        """
-        Геттер для зарплаты
-        """
-        return self.__salary
-
-    @salary.setter
-    def salary(self, value: int) -> None:
-        """
-        Сеттер для зарплаты
-        """
-        if value > 0:
-            self.__salary = value
-
     def __lt__(self, other) -> bool:
         """
         Метод, переопределяющий поведение оператора <
         """
         if isinstance(other, Vacancies):
-            if self.__salary < other.__salary:
+            if self.salary < other.salary:
                 return True
             else:
                 return False
@@ -61,7 +48,7 @@ class Vacancies:
         Метод, переопределяющий поведение оператора <=
         """
         if isinstance(other, Vacancies):
-            if self.__salary <= other.__salary:
+            if self.salary <= other.salary:
                 return True
             else:
                 return False
@@ -73,7 +60,7 @@ class Vacancies:
         Метод, переопределяющий поведение оператора >
         """
         if isinstance(other, Vacancies):
-            if self.__salary > other.__salary:
+            if self.salary > other.salary:
                 return True
             else:
                 return False
@@ -85,7 +72,7 @@ class Vacancies:
         Метод, переопределяющий поведение оператора >=
         """
         if isinstance(other, Vacancies):
-            if self.__salary >= other.__salary:
+            if self.salary >= other.salary:
                 return True
             else:
                 return False
@@ -97,7 +84,7 @@ class Vacancies:
         Метод, переопределяющий поведение оператора ==
         """
         if isinstance(other, Vacancies):
-            if self.__salary == other.__salary:
+            if self.salary == other.salary:
                 return True
             else:
                 return False
@@ -109,7 +96,7 @@ class Vacancies:
         Метод, переопределяющий поведение оператора !=
         """
         if isinstance(other, Vacancies):
-            if self.__salary != other.__salary:
+            if self.salary != other.salary:
                 return True
             else:
                 return False
