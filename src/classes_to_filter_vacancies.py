@@ -18,6 +18,9 @@ class JsonReader:
         return vacancies
 
     def get_vacancy(self, vacancy):
+        """
+        Метод для получения списка вакансий из файла по названию вакансий
+        """
         vacancy_list = []
         for item in self.read_json():
             if vacancy in item["name"]:
