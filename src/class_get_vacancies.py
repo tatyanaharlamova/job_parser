@@ -14,10 +14,6 @@ class AbstractAPI(ABC):
     def get_vacancies(self, *args, **kwargs):
         pass
 
-    @abstractmethod
-    def save_vacancies(self, *args, **kwargs):
-        pass
-
 
 class GetVacancyFromApi(AbstractAPI):
     """
@@ -25,20 +21,20 @@ class GetVacancyFromApi(AbstractAPI):
     """
 
     def __init__(self, url):
-        self.url = url
+        self.__url = url
 
-    def get_vacancies(self, vacancy: str, file_name: str) -> dict:
+    @property
+    def url(self):
+        return self.__url
+
+    @url.setter
+    def url(self, new_url):
+        self.__url = new_url
+
+    def get_vacancies(self, vacancy: str) -> dict:
         """
         Метод для получения вакансии по API, возвращает словарь
         """
-        response = requests.get(URL, params={'text': vacancy})
+        response = requests.get(self.__url, params={'text': vacancy, 'per_page': 100})
         vacancies = json.loads(response.text)["items"]
-        self.save_vacancies(file_name, vacancies)
         return vacancies
-
-    def save_vacancies(self, file_name: str, vacancies: str) -> None:
-        """
-        Метод для сохранения вакансий в JSON файл
-        """
-        with open(file_name, "w") as file:
-            json.dump(vacancies, file, ensure_ascii=False, indent=4)

@@ -11,7 +11,10 @@ def user_interaction():
     """
     while True:
         search_query = input("Введите поисковый запрос: ")
-        GetVacancyFromApi(URL).get_vacancies(search_query, filename)
+        vacancies = GetVacancyFromApi(URL)
+        vacancies_from_api = vacancies.get_vacancies(search_query)
+        result = JSONSaver(filename)
+        result.save_from_api(vacancies_from_api)
         j = JsonReader(filename)
         vacancy_list = j.cast_to_object_list
         if not vacancy_list:

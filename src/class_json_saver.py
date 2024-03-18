@@ -24,7 +24,7 @@ class JSONSaver(AbstractJson):
 
     def save_to_json(self, vacancy: Vacancies) -> None:
         """
-        Метод для сохранения вакансий в JSON файл
+        Метод для сохранения вакансии в JSON файл
         """
         vacancy_dict = {"name": vacancy.name, "salary": vacancy.salary, "address": vacancy.address,
                         "schedule": vacancy.schedule, "snippet": vacancy.snippet}
@@ -55,3 +55,10 @@ class JSONSaver(AbstractJson):
                     vacancy_list.remove(item)
             with open(self.file_name, "w") as f:
                 json.dump(vacancy_list, f, ensure_ascii=False, indent=4)
+
+    def save_from_api(self, vacancies) -> None:
+        """
+        Метод для сохранения вакансий, полученных с hh.ru в JSON файл
+        """
+        with open(self.file_name, "w") as file:
+            json.dump(vacancies, file, ensure_ascii=False, indent=4)

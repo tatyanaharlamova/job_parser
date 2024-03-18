@@ -17,6 +17,13 @@ class JsonReader:
             vacancies = json.load(file)
         return vacancies
 
+    def get_vacancy(self, vacancy):
+        vacancy_list = []
+        for item in self.read_json():
+            if vacancy in item["name"]:
+                vacancy_list.append(item)
+        return vacancy_list
+
     def cast_to_object_list(self) -> list:
         """
         Метод, создающий объекты класса Вакансий и добавляющий его в список объектов
